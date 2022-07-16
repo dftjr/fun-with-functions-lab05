@@ -8,10 +8,10 @@ Write a function called sum() that takes in two numbers as arguments and then re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
-function testSum(a, b) { //eslint-disable-line
+function sum(a, b) { //eslint-disable-line
   let sum = a + b;
   console.log(sum);
-  let message = (`The sum of ${a} and ${b} is ${sum}`);
+  let message = (`The sum of ${a} and ${b} is ${sum}.`);
   console.log(message);
   let arr = [sum, message];
   console.log(arr);
@@ -32,10 +32,10 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function testMultiply(a, b) { //eslint-disable-line
+function multiply(a, b) { //eslint-disable-line
   let sum = a * b;
   console.log(sum);
-  let message = (`The product of ${a} and ${b} is ${sum}`);
+  let message = (`The product of ${a} and ${b} is ${sum}.`);
   console.log(message);
   let arr = [sum, message];
   console.log(arr);
@@ -59,12 +59,19 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function testSumAndMultiply(a, b, c) { //eslint-disable-line
-  let sum = a + b + c;
-  console.log(sum);
-  let message = (`The product of ${a} and ${b} and ${c} is ${sum}.`);
-  console.log(message);
-  let arr = [sum, message];
+function sumAndMultiply(a, b, c) { //eslint-disable-line
+  // let sum = sum(a, sum(b, c)[0])[0];
+  let sum1 = sum(a, b)[0];
+  console.log(sum1);
+  let sum2= sum(sum1, c)[0];
+  console.log(sum2);
+  let sumMessage = `${a} and ${b} and ${c} sum to ${sum2}.`;
+
+  let product1 = multiply(a, b)[0];
+
+  let product2 = multiply(product1, c)[0];
+  let productMessage = `The product of ${a} and ${b} and ${c} is ${product2}.`;
+  let arr = [sum2, product2, sumMessage, productMessage];
   console.log(arr);
   return arr;
 }
